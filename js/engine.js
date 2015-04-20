@@ -92,9 +92,9 @@ var Engine = (function(global) {
      */
     function initializeEnemies() {
         allEnemies = [];
-        var numEnemies = prompt("How many monsters do you think you can handle?");
+        var numEnemies = prompt("How many bugs do you want to go up against?");
         while (isNaN(numEnemies) || numEnemies == "") {
-            var numEnemies = prompt("How many monsters do you think you can handle?\nPlease enter a valid number.");
+            var numEnemies = prompt("Please enter a valid number.");
         }
         for (var i = 0; i < numEnemies; i++) {
             allEnemies.push(new Enemy());
