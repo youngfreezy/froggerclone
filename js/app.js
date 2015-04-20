@@ -50,7 +50,7 @@ var Player = function() {
 
 // Update the player's position, required method for game
 Player.prototype.update = function() {
-    // This method is currently unused, but maybe will be implemented in future releases
+    // This method is currently unused
 }
 
 // Draw the player on the screen, required method for game
