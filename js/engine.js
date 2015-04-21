@@ -64,7 +64,7 @@ var Engine = (function(global) {
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
-     * game loop, initializing the player and enemies by calling reset, and 
+     * game loop, initializing the player and enemies by calling reset, and
      * handling the directional keyup events.
      */
     function init() {
@@ -84,7 +84,7 @@ var Engine = (function(global) {
         lastTime = Date.now();
         main();
     }
-    
+
     /* This function prompts the user for a number of enemies to insert into the game.
      * It makes sure that a user enters a number, and then adds that many enemies to
      * the allEnemies array. This method is called in the reset method when the user first
@@ -98,8 +98,8 @@ var Engine = (function(global) {
         }
         for (var i = 0; i < numEnemies; i++) {
             allEnemies.push(new Enemy());
-        }
-    }
+        };
+    };
 
     /* This function is called by main (our game loop) and itself calls all
      * of the functions which may need to update entity's data. Based on how
@@ -126,7 +126,6 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
         //Check to see if the player won. If so, alert the user and reset the game.
         if (player.won) {
             alert("You won!");
@@ -141,12 +140,12 @@ var Engine = (function(global) {
      */
     function checkCollisions() {
         allEnemies.forEach(function(enemy) {
-            if(Math.abs(player.y - enemy.y) < 10){
-                if(Math.abs(player.x - enemy.x) < 55){
+            if (Math.abs(player.y - enemy.y) < 10) {
+                if (Math.abs(player.x - enemy.x) < 55) {
                     player.lives -= 1;
                     // Check to see if the user has lost all lives.
                     // If so, alert the user and reset the game.
-                    if(player.lives == 0){
+                    if (player.lives == 0) {
                         alert("You Lose!");
                         reset();
                     }
@@ -167,12 +166,12 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 4 of stone
-                'images/stone-block.png',   // Row 2 of 4 of stone
-                'images/stone-block.png',   // Row 3 of 4 of stone
-                'images/stone-block.png',   // Row 4 of 4 of stone
-                'images/grass-block.png'    // Bottom row is grass
+                'images/water-block.png', // Top row is water
+                'images/stone-block.png', // Row 1 of 4 of stone
+                'images/stone-block.png', // Row 2 of 4 of stone
+                'images/stone-block.png', // Row 3 of 4 of stone
+                'images/stone-block.png', // Row 4 of 4 of stone
+                'images/grass-block.png' // Bottom row is grass
             ],
             numRows = 6,
             numCols = 5,
@@ -195,12 +194,12 @@ var Engine = (function(global) {
             }
         }
         /* Draw hearts on the bottom row of the screen for the number of lives
-         * that the player has left. 
+         * that the player has left.
          */
         var heartPlace = 0;
         for (var i = 0; i < player.lives; i++) {
             // Skip the third column because that is where the player starts
-            if(i == 2){
+            if (i == 2) {
                 heartPlace++;
             }
             ctx.drawImage(Resources.get('images/heart.png'), heartPlace * 101, 5.4 * 83);
